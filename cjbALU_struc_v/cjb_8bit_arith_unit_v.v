@@ -19,7 +19,7 @@ module cjb_8bit_arith_unit_v (Func_Sel, Operand_X, Operand_Y, Const_K,
 //----------------------------------------------------------------------------------
 	cjb_8bit_addsub_struc_v		addersub
 		(.cin (Func_Sel[0]), .x (Operand_X), .y (yselect), .sum (Int_Result), .cout (cout), .overflow (overflow));
-	cjb_8bit_mux2to1_v	yselect_mux
+	cjb_nbit_mux2to1_struc_v #(8) yselect_mux
 		(.d1 ({6'b000000, Const_K}), .d0 (Operand_Y), .s (Func_Sel[1]), .f (yselect));
 //----------------------------------------------------------------------------------
 // The final outputs assignments

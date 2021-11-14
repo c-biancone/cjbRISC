@@ -15,7 +15,7 @@ module cjb_8bit_logic_unit_v (Func_Sel, Operand_X, Operand_Y, Const_K,
 //----------------------------------------------------------------------------------
 // The logic_mux instance
 //----------------------------------------------------------------------------------
-	cjb_8bit_mux4to1_struc_v	logic_mux
+	cjb_nbit_mux4to1_struc_v #(8) logic_mux
 		(.d3 (Operand_X), .d2 (or_result), .d1 (and_result), .d0 (xor_result), .s (Func_Sel[1:0]), .f (Logic_Result));
 //----------------------------------------------------------------------------------
 // The outputs calculations

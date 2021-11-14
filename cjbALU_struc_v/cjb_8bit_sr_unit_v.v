@@ -19,7 +19,7 @@ module cjb_8bit_sr_unit_v (Func_Sel, Operand_X, Operand_Y, Const_K, cin,
 //----------------------------------------------------------------------------------
 // The sr_mux instance
 //----------------------------------------------------------------------------------
-	cjb_8bit_mux4to1_struc_v	sr_mux
+	cjb_nbit_mux4to1_struc_v #(8) sr_mux
 		(.d3 (Operand_Y), .d2 (rrc), .d1 (shrl), .d0 (shra), .s (Func_Sel[1:0]), .f (SR_Result));
 //----------------------------------------------------------------------------------
 // Using two nested conditional operators to calculate shra.

@@ -17,9 +17,9 @@ module cjb_8bit_alu_struc_v (Func_Sel, Operand_X, Operand_Y, Const_K, cin,
 //----------------------------------------------------------------------------------
 // The top-level 4-to-1 muxes which select the ALU_Result and ALU_CNVZ
 //----------------------------------------------------------------------------------
-	cjb_8bit_mux4to1_struc_v	result_mux	(.d3 (Const_Result), .d2 (SR_Result), .d1 (Logic_Result), 
+	cjb_nbit_mux4to1_struc_v #(8) result_mux	(.d3 (Const_Result), .d2 (SR_Result), .d1 (Logic_Result), 
 		.d0 (Arith_Result[7:0]), .s (Func_Sel[3:2]), .f (ALU_Result));
-	cjb_4bit_mux4to1_struc_v	cnvz_mux	(.d3 (Const_CNVZ), .d2 (SR_CNVZ), .d1 (Logic_CNVZ), 
+	cjb_nbit_mux4to1_struc_v #(4) cnvz_mux	(.d3 (Const_CNVZ), .d2 (SR_CNVZ), .d1 (Logic_CNVZ), 
 		.d0 (Arith_CNVZ), .s (Func_Sel[3:2]), .f (ALU_CNVZ));
 //----------------------------------------------------------------------------------
 // The arithmetic unit instance
