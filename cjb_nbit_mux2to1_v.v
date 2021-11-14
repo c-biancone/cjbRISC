@@ -6,8 +6,9 @@ input s;
 output [n-1:0] f;
 genvar k;
 
-generate	for (k = 0; k < n; k = k+1) begin : muxes 
-	assign f[k] = (s & d1[k]) | (~s & d0[k]);	end
+generate for (k = 0; k < n; k = k+1)
+    begin : muxes
+        assign f[k] = (s & d1[k]) | (~s & d0[k]);	end
 endgenerate
 
 endmodule

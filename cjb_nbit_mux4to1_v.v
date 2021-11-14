@@ -7,7 +7,7 @@ input [1:0] s;
 output [n-1:0] f;
 genvar k;
 
-generate	for (k = 0; k < n; k = k+1) 
+generate for (k = 0; k < n; k = k+1) 
 	begin : muxes 
 		assign f[k] = (~s[1] & ~s[0] & d0[k]) | 
 				(~s[1] & s[0] & d1[k]) |
