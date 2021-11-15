@@ -10,7 +10,7 @@
 ***************************************************************************************************/
 
 module cjbRISC_HMMIOP_CU_v (Reset, Clock, IW, SR_CNVZ, MARout, RST_PC, LD_PC, CNT_PC, LD_IR, LD_R0,
-    LD_R1, LD_R2, LD_R3, LD_SR, LD_MABR, LD_MAXR, LD_MAR, RW, LD_IPDR, LD_OPDR,  push, pop,
+    LD_R1, LD_R2, LD_R3, LD_SR, LD_MABR, LD_MAXR, LD_MAR, RW, LD_IPDR, LD_OPDR, push, pop,
     ipstksel, IB0_SEL, IB1_SEL, IB2_SEL, ALU_FS, crtMCis);
 
 input             Reset, Clock;

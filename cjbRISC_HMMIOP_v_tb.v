@@ -21,7 +21,8 @@ wire  [2:0]   crtMCis_tb;
 
 integer i;
 
-cjbRISC_HMMIOP_v muv (Reset_tb, Clock_tb, PB1_tb, SW_tb, LEDs_tb, ICis_tb, crtMCis_tb);
+cjbRISC_HMMIOP_v muv (.Reset (Reset_tb), .Clock (Clock_tb), .PB1 (PB1_tb), .SW (SW_tb),
+    .LEDs (LEDs_tb), .ICis (ICis_tb), .crtMCis (crtMCis_tb));
 
 initial begin
 
