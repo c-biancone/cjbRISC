@@ -2,7 +2,7 @@
 * File Name: cjb_8bit_logic_unit_v.v
 *
 * Description: Structural 8-bit Logic Unit
-*              Performs logival &, |, ^ operations on inputs
+*              Performs logical &, |, ^ operations on inputs
 *
 * Author: Chris Biancone, October 2021
 ***************************************************************************************************/

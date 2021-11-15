@@ -29,7 +29,7 @@ reg          intClk = 1'b0;
 assign RESET = ~pb[0];
 
 // instantiate RISC processor
-cjbRISC_HMMIOP_v (.Reset (RESET), .Clock (intClk), .PB1 (pb[1]), .SW (sw), .LEDs (leds),
+cjbRISC_HMMIOP_v cjbRISC (.Reset (RESET), .Clock (intClk), .PB1 (pb[1]), .SW (sw), .LEDs (leds),
     .ICis (ICis), .crtMCis (crtMCis));
 
 // divide the onboard 50 MHz CLOCK_50 so that the period of intClock is 1 second;

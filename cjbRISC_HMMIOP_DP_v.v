@@ -8,9 +8,9 @@
 * Author: Chris Biancone, October 2021
 ***************************************************************************************************/
 
-module cjbRISC_HMMIOP_DP_v (Reset, Clock, PB1, MARout, RST_PC, LD_PC, CNT_PC, LD_IR, LD_R0, LD_R1,
+module cjbRISC_HMMIOP_DP_v (Reset, Clock, PB1, RST_PC, LD_PC, CNT_PC, LD_IR, LD_R0, LD_R1,
     LD_R2, LD_R3, LD_SR, LD_MABR, LD_MAXR, LD_MAR, RW, LD_IPDR, LD_OPDR, push, pop, ipstksel,
-    IB0_SEL, IB1_SEL, IB2_SEL, SW, ALU_FS, LEDs, IW, SR_CNVZ);
+    IB0_SEL, IB1_SEL, IB2_SEL, SW, ALU_FS, LEDs, IW, SR_CNVZ, MARout);
 
 input         Reset, Clock, PB1, RST_PC, LD_PC, CNT_PC, LD_IR, LD_R0, LD_R1, LD_R2, LD_R3, LD_SR,
               LD_MABR, LD_MAXR, LD_MAR, RW, LD_IPDR, LD_OPDR, push, pop, ipstksel;

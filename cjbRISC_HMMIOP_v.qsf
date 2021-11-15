@@ -57,7 +57,6 @@ set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH cjbRISC_HMMIOP_
 set_global_assignment -name EDA_TEST_BENCH_NAME cjbRISC_HMMIOP_v_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id cjbRISC_HMMIOP_v_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME cjbRISC_HMMIOP_v_tb -section_id cjbRISC_HMMIOP_v_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE cjbRISC_HMMIOP_v_tb.v -section_id cjbRISC_HMMIOP_v_tb
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -76,11 +75,21 @@ set_location_assignment PIN_M15 -to sw[3]
 set_location_assignment PIN_B9 -to sw[2]
 set_location_assignment PIN_T8 -to sw[1]
 set_location_assignment PIN_M1 -to sw[0]
-set_global_assignment -name VERILOG_FILE Primitives/cjb_nbit_4loc_stack_v.v
-set_global_assignment -name VERILOG_FILE Primitives/cjb_nbit_cntup_v.v
+set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_DP_v.v
+set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_v_tb.v
+set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_v_FPGA.v
+set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_v.v
+set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_CU_v.v
+set_global_assignment -name VERILOG_FILE cjb_PM_HMMIOP_v.v
+set_global_assignment -name QIP_FILE cjb_PM_HMMIOP_v.qip
+set_global_assignment -name VERILOG_FILE cjb_IW2ASCII_v.v
+set_global_assignment -name VERILOG_FILE cjb_DM_HMMIOP_v.v
+set_global_assignment -name QIP_FILE cjb_DM_HMMIOP_v.qip
 set_global_assignment -name VERILOG_FILE Primitives/cjb_nbit_reg_v.v
 set_global_assignment -name VERILOG_FILE Primitives/cjb_nbit_mux4to1_v.v
 set_global_assignment -name VERILOG_FILE Primitives/cjb_nbit_mux2to1_v.v
+set_global_assignment -name VERILOG_FILE Primitives/cjb_nbit_cntup_v.v
+set_global_assignment -name VERILOG_FILE Primitives/cjb_nbit_4loc_stack_v.v
 set_global_assignment -name VERILOG_FILE Primitives/cjb_fa_struc_v.v
 set_global_assignment -name VERILOG_FILE cjbALU_struc_v/cjb_8bit_sr_unit_v.v
 set_global_assignment -name VERILOG_FILE cjbALU_struc_v/cjb_8bit_logic_unit_v.v
@@ -88,13 +97,5 @@ set_global_assignment -name VERILOG_FILE cjbALU_struc_v/cjb_8bit_const_unit_v.v
 set_global_assignment -name VERILOG_FILE cjbALU_struc_v/cjb_8bit_arith_unit_v.v
 set_global_assignment -name VERILOG_FILE cjbALU_struc_v/cjb_8bit_alu_struc_v.v
 set_global_assignment -name VERILOG_FILE cjbALU_struc_v/cjb_8bit_addsub_struc_v.v
-set_global_assignment -name MIF_FILE cjb_PM_HMMIOP_P1.mif
-set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_v_tb.v
-set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_v.v
-set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_DP_v.v
-set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_CU_v.v
-set_global_assignment -name VERILOG_FILE cjb_IW2ASCII_v.v
-set_global_assignment -name QIP_FILE cjb_DM_HMMIOP_v.qip
-set_global_assignment -name QIP_FILE cjb_PM_HMMIOP_v.qip
-set_global_assignment -name VERILOG_FILE cjbRISC_HMMIOP_v_FPGA.v
+set_global_assignment -name EDA_TEST_BENCH_FILE cjbRISC_HMMIOP_v_tb.v -section_id cjbRISC_HMMIOP_v_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
