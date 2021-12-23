@@ -9,8 +9,10 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <br/>
+<p align="center">
 <img src="documents/README/cjbRISC_HMMIOP_DP.png">
-<br/><br/>
+</p>
+<br/>
 
 <!-- DESCRIPTION -->
   <p align="left">
@@ -24,7 +26,6 @@
     <a href="https://github.com/c-biancone/cjbRISC/issues">Report Bug / Request Feature</a>
     ·
   </p>
-</p>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -49,9 +50,10 @@
 ## Background
 A Central Processing Unit (CPU) in its most basic form is a set of registers and combinational logic (ALU) that is controlled by a Control Unit in order to take in inputs, manipulate the data according to specified instructions, and output the result. It also has access to memory to store the data for later use.
 
-| ![basicCPU](documents/README/ABasicComputer.gif) |
+| ![basicCPU](documents/README/ABasicComputer.gif)|
 |:--:|
 | <a href="https://en.wikipedia.org/wiki/Central_processing_unit#/media/File:ABasicComputer.gif">*A Basic Computer*</a> |
+</br>
 
 RISC processing is typically categorized by a CPU having fewer than 100 instructions in its architecture. They can typically perform the same functions as Complex Instruction Set computers (>100 instructions) with increased computing time. RISC has gained a lot of notoriety recently with developments by Si-Five's RISC-V free and open Instruction Set Architecture (ISA) as a means to combat the bloated instruction sets of x86 computing and achieve a more efficient use of the silicon CPU die. However, RISC is where computing started, before complex instructions could be implemented at the hardware level. This makes a custom RISC processor suitable as an introduction to complex digital system design.
 
@@ -62,24 +64,21 @@ This RISC processor follows the Harvard computer architecture, which has separat
 | ![Harvard](documents/README/Harvard_architecture.svg) |
 |:--:|
 | <a href="https://en.wikipedia.org/wiki/Harvard_architecture">*Harvard Architecture*</a> |
+</br>
 
  The I/O registers are Memory-Mapped, allowing the instructions used to access data memory also access I/O devices. It has 3 internal busses - two for loading operands and one write-back bus that also handles memory addressing. The ALU and its lower-level primitives are described structurally to achieve the most efficient hardware implementation after compilation.
 
 I employed the Algorithmic State Machine method to design the functionality of the CPU:
 
-<br />
-<p align="center">
-  <a href="">
-    <img src="documents/README/3_bus_Harvard_Mem_Map_RISC_ASM.png">
-  </a>
+| ![ASMChart](documents/README/3_bus_Harvard_Mem_Map_RISC_ASM.jpg) |
+|:--:|
+</br>
 
 This was used to develop the <a href="https://github.com/c-biancone/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_CU_v.v">Control Unit</a> for the CPU, which generates the necessary signals to correctly control the <a href="https://github.com/c-biancone/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_DP_v.v">Data Path</a> during each Machine Cycle. A block diagram of the Data Path is shown here, detailing the Register File, ALU, Program Memory, Data Memory, and I/O:
 
-<br />
-<p align="center">
-  <a href="">
-    <img src="documents/README/3_bus_Harvard_MM_I_OPs_Schematic.png">
-  </a>
+| ![Schematic](documents/README/3_bus_Harvard_MM_I_OPs_Schematic.jpg) |
+|:--:|
+</br>
 
 The address for the Memory-Mapped I/O is calculated by sign extending the output from the program memory and adding it with a "memory offset" brought in from the writeback bus.
 
@@ -96,7 +95,7 @@ To get a local copy up and running follow these simple steps:
 
 ### Prerequisites
 
-* Intel Quartus Prime
+* <a href="https://fpgasoftware.intel.com/?edition=lite">Intel Quartus Prime Lite</a>
 
 To implement CPU in hardware:
 * Altera FPGA dev board (Terasic DE0-Nano used here)
@@ -118,14 +117,14 @@ To implement CPU in hardware:
 
 2. Set ModelSim-Altera as the EDA tool simulation environment and make sure `cjbRISC_HMMIOP_v_tb.v` is set as the testbench to compile.
 
-3. To select the program to run, navigate to the <a href="https://github.com/c-biancone/cjbRISC/tree/main/programs">programs</a> directory and copy the desired program to <a href="https://github.com/c-biancone/cjbRISC/tree/main/cjbRISC_Quartus">cjbRISC_Quartus</a>. Change `Line 86` in <a href="https://github.com/c-biancone/cjbRISC/blob/main/verilog_RISC/cjb_PM_HMMIOP_v.v">cjb_PM_HMMIOP_v</a> to include the name of the correct program.
+3. To select the program to run, navigate to the <a href="https://github.com/c-biancone/cjbRISC/tree/main/programs">programs</a> directory and copy the desired program to <a href="https://github.com/c-biancone/cjbRISC/tree/main/cjbRISC_Quartus">cjbRISC_Quartus</a>. Change `Line 86` in `cjb_PM_HMMIOP_v` to include the name of the correct program.
 
 4. To run only a simulation, set the top-level entity to `cjbRISC_HMMIOP_V.v` and run the Analysis and Synthesis. Once this is done, navigate to Tools > Run Simulation Tool > RTL Simulation.
 
 5. To compile for hardware implementation, be sure to set the correct pin assignments for your FPGA. Set the top-level entity to `cjbRISC_HMMIOP_v.v` or `cjbRISC_HMMIOP_v_FPGA.v` if clock division is needed. Once this is complete the FPGA can be programmed and the CPU will run.
 
 ##### Note:
-* Lines 253 and 266 of `cjbRISC_HMMIOP_CU.v` determine which addresses of the Memory-Mapped I/O will also output on the store instruction. This needs to be at least the last 4 of the 1024 memory addresses, so change this to at most `0x3FC`.
+* Lines 253 and 266 of `cjbRISC_HMMIOP_CU.v` determine which addresses of the Memory-Mapped I/O will also output on the store instruction. This needs to be at least the last 4 of the 1024 memory addresses, so change this value in the condition to at most `0x3FC`.
 
 
 ## Future
