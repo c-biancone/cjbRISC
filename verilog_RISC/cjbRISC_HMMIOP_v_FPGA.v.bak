@@ -34,7 +34,7 @@ cjbRISC_HMMIOP_v cjbRISC (.Reset (RESET), .Clock (intClk), .PB1 (pb[1]), .SW (sw
 
 // divide the onboard 50 MHz CLOCK_50 so that the period of intClock is 1 second;
 always @ (posedge Clk_50) begin
-  if (intclkcnt < 26'd250) begin
+  if (intclkcnt < 26'd25000000) begin
     intclkcnt = intclkcnt + 1'b1; intClk = intClk; end
   else begin intclkcnt = 26'd0; intClk = ~intClk; end
 end

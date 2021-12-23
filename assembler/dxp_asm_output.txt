@@ -1,0 +1,584 @@
+
+Enter the assembly source file name: 
+The assembly source file has been successfully opened for reading.
+
+
+Step1: Structural and Preliminary Syntactical Check:
+   Syntax Error in line  35 - expecting instruction mnemonic, 		<.label:>, <.endcode;>, or <;>
+
+Step1: Structural and Preliminary Syntactical Check
+ 		==> Concluded successfully. <==
+
+The files are now being closed.
+
+Step2: Assembly:
+
+The length is:=  24
+
+Parsing code line   1:
+  30   			ADDC	R5, 0x20;
+
+
+ asf_line_number is :=  30
+ first_syllable is := ADDC
+ second_syllable is := R5,
+ third_syllable is := 0x20;
+ fourth_syllable is := 
+ fifth_syllable is := 
+
+crt_ri of k is = R0,
+
+crt_ri of k is = R1,
+
+crt_ri of k is = R2,
+
+crt_ri of k is = R3,
+
+crt_ri of k is = R4,
+
+crt_ri of k is = R5,
+
+crt_ri of k is = R6,
+
+crt_ri of k is = R7,
+
+crt_ri of k is = R8,
+
+crt_ri of k is = R9,
+
+crt_ri of k is = R10,
+
+crt_ri of k is = R11,
+
+crt_ri of k is = R12,
+
+crt_ri of k is = R13,
+
+crt_ri of k is = R14,
+
+crt_ri of k is = R15,
+0000 : 0100001011111100; % ADDC R5, 0x20; % 
+
+The length is:=  23
+
+Parsing code line   2:
+  31   			SUBC	R6, 0x2;
+
+
+ asf_line_number is :=  31
+ first_syllable is := SUBC
+ second_syllable is := R6,
+ third_syllable is := 0x2;
+ fourth_syllable is := 
+ fifth_syllable is := 
+
+crt_ri of k is = R0,
+
+crt_ri of k is = R1,
+
+crt_ri of k is = R2,
+
+crt_ri of k is = R3,
+
+crt_ri of k is = R4,
+
+crt_ri of k is = R5,
+
+crt_ri of k is = R6,
+
+crt_ri of k is = R7,
+
+crt_ri of k is = R8,
+
+crt_ri of k is = R9,
+
+crt_ri of k is = R10,
+
+crt_ri of k is = R11,
+
+crt_ri of k is = R12,
+
+crt_ri of k is = R13,
+
+crt_ri of k is = R14,
+
+crt_ri of k is = R15,
+0001 : 0100001100000101; % SUBC R6, 0x2; % 
+
+The length is:=  22
+
+Parsing code line   3:
+  32   			ADD		R6, R5;
+
+
+ asf_line_number is :=  32
+ first_syllable is := ADD
+ second_syllable is := R6,
+ third_syllable is := R5;
+ fourth_syllable is := 
+ fifth_syllable is := 
+0002 : 0011001100010100; % ADD R6, R5; % 
+
+The length is:=  22
+
+Parsing code line   4:
+  33   			SUB		R5, R6;
+
+
+ asf_line_number is :=  33
+ first_syllable is := SUB
+ second_syllable is := R5,
+ third_syllable is := R6;
+ fourth_syllable is := 
+ fifth_syllable is := 
+0003 : 0011001010011001; % SUB R5, R6; % 
+
+The length is:=  23
+
+Parsing code line   5:
+  34   			SHLA	R5, 0x2;
+
+
+ asf_line_number is :=  34
+ first_syllable is := SHLA
+ second_syllable is := R5,
+ third_syllable is := 0x2;
+ fourth_syllable is := 
+ fifth_syllable is := 
+0004 : 0110001010001010; % SHLA R5, 0x2; % 
+
+The length is:=  23
+
+Parsing code line   6:
+  36   			ADDC	R6, 0x3;
+
+
+ asf_line_number is :=  36
+ first_syllable is := ADDC
+ second_syllable is := R6,
+ third_syllable is := 0x3;
+ fourth_syllable is := 
+ fifth_syllable is := 
+
+crt_ri of k is = R0,
+
+crt_ri of k is = R1,
+
+crt_ri of k is = R2,
+
+crt_ri of k is = R3,
+
+crt_ri of k is = R4,
+
+crt_ri of k is = R5,
+
+crt_ri of k is = R6,
+
+crt_ri of k is = R7,
+
+crt_ri of k is = R8,
+
+crt_ri of k is = R9,
+
+crt_ri of k is = R10,
+
+crt_ri of k is = R11,
+
+crt_ri of k is = R12,
+
+crt_ri of k is = R13,
+
+crt_ri of k is = R14,
+
+crt_ri of k is = R15,
+0005 : 0100001100001000; % ADDC R6, 0x3; % 
+
+The length is:=  22
+
+Parsing code line   7:
+  37   			CPY		R7, R5;
+
+
+ asf_line_number is :=  37
+ first_syllable is := CPY
+ second_syllable is := R7,
+ third_syllable is := R5;
+ fourth_syllable is := 
+ fifth_syllable is := 
+0006 : 0000001110010110; % CPY R7, R5; % 
+
+The length is:=  22
+
+Parsing code line   8:
+  38   			MUL		R7, R6;
+
+
+ asf_line_number is :=  38
+ first_syllable is := MUL
+ second_syllable is := R7,
+ third_syllable is := R6;
+ fourth_syllable is := 
+ fifth_syllable is := 
+0007 : 0011001110011010; % MUL R7, R6; % 
+
+The length is:=  22
+
+Parsing code line   9:
+  39   			SWAP	R7, R5;
+
+
+ asf_line_number is :=  39
+ first_syllable is := SWAP
+ second_syllable is := R7,
+ third_syllable is := R5;
+ fourth_syllable is := 
+ fifth_syllable is := 
+0008 : 0000001110010111; % SWAP R7, R5; % 
+
+The length is:=  23
+
+Parsing code line  10:
+  41   			ROTR	R5, 0x3;
+
+
+ asf_line_number is :=  41
+ first_syllable is := ROTR
+ second_syllable is := R5,
+ third_syllable is := 0x3;
+ fourth_syllable is := 
+ fifth_syllable is := 
+0009 : 0111001010001101; % ROTR R5, 0x3; % 
+
+The length is:=  22
+
+Parsing code line  11:
+  42   			DIV		R7, R5;
+
+
+ asf_line_number is :=  42
+ first_syllable is := DIV
+ second_syllable is := R7,
+ third_syllable is := R5;
+ fourth_syllable is := 
+ fifth_syllable is := 
+000a : 0011001110010111; % DIV R7, R5; % 
+
+The length is:=  22
+
+Parsing code line  12:
+  43   			CPY		R8, R7;
+
+
+ asf_line_number is :=  43
+ first_syllable is := CPY
+ second_syllable is := R8,
+ third_syllable is := R7;
+ fourth_syllable is := 
+ fifth_syllable is := 
+000b : 0000010000011110; % CPY R8, R7; % 
+
+The length is:=  22
+
+Parsing code line  13:
+  44   			XOR		R8, R5;
+
+
+ asf_line_number is :=  44
+ first_syllable is := XOR
+ second_syllable is := R8,
+ third_syllable is := R5;
+ fourth_syllable is := 
+ fifth_syllable is := 
+000c : 0101010000010111; % XOR R8, R5; % 
+
+The length is:=  23
+
+Parsing code line  14:
+  45   			RTRC	R5, 0x2;
+
+
+ asf_line_number is :=  45
+ first_syllable is := RTRC
+ second_syllable is := R5,
+ third_syllable is := 0x2;
+ fourth_syllable is := 
+ fifth_syllable is := 
+000d : 0111001010001011; % RTRC R5, 0x2; % 
+
+The length is:=  25
+
+Parsing code line  15:
+  46   			JMPC	@jmp_here;
+
+
+ asf_line_number is :=  46
+ first_syllable is := JMPC
+ second_syllable is := @jmp_here;
+ third_syllable is := 0x2;
+ fourth_syllable is := 
+ fifth_syllable is := 
+000e : 001010000000000; % JMPC @jmp_here; 0x2; % 
+000f : @jmp_here;; % JMPC @jmp_here; 0x2; % 
+
+The length is:=  39
+
+Parsing code line  16:
+  47   @jmp_here	ST		R5, M[R0, 0x0555];
+
+
+ asf_line_number is :=  47
+ first_syllable is := @jmp_here
+ second_syllable is := ST
+ third_syllable is := R5,
+ fourth_syllable is := M[R0,
+ fifth_syllable is := 0x0555];
+0010 : 0000001010000001; % ST R5, M[R0, % 
+0011 : 0000010101010101; % 0x0555]; % 
+
+The length is:=  18
+
+Parsing code line  17:
+  48   			RTLC	R5;
+
+
+ asf_line_number is :=  48
+ first_syllable is := RTLC
+ second_syllable is := R5;
+ third_syllable is := M[R0,
+ fourth_syllable is := 0x0555];
+ fifth_syllable is := 0x0555];
+
+Error: Unexpected Ri field in line  48
+The length is:=  32
+
+Parsing code line  18:
+  49   			LD		R5, M[R0, 0x0555];
+
+
+ asf_line_number is :=  49
+ first_syllable is := LD
+ second_syllable is := R5,
+ third_syllable is := M[R0,
+ fourth_syllable is := 0x0555];
+ fifth_syllable is := 0x0555];
+0012 : 0000001010000000; % LD R5, M[R0, % 
+0013 : 0000010101010101; % 0x0555]; % 
+
+The length is:=  22
+
+Parsing code line  19:
+  50   			OUT		R5, SP;
+
+
+ asf_line_number is :=  50
+ first_syllable is := OUT
+ second_syllable is := R5,
+ third_syllable is := SP;
+ fourth_syllable is := 0x0555];
+ fifth_syllable is := 0x0555];
+
+Error: Unexpected menmonic in line  50
+ Parsing address line := --Program
+ second_syllable is := Memory
+ third_syllable is := Initialization
+ fourth_syllable is := File
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := --Created
+ second_syllable is := by
+ third_syllable is := dxp_asm
+ fourth_syllable is := File
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := WIDTH
+ second_syllable is := =
+ third_syllable is := 16;
+ fourth_syllable is := File
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := DEPTH
+ second_syllable is := =
+ third_syllable is := 1024;
+ fourth_syllable is := File
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := ADDRESS_RADIX
+ second_syllable is := =
+ third_syllable is := HEX;
+ fourth_syllable is := %
+ fifth_syllable is := Can
+
+ Parsing address line := DATA_RADIX
+ second_syllable is := =
+ third_syllable is := BIN;
+ fourth_syllable is := %
+ fifth_syllable is := Can
+
+ Parsing address line := DATA_RADIX
+ second_syllable is := =
+ third_syllable is := BIN;
+ fourth_syllable is := %
+ fifth_syllable is := Can
+
+ Parsing address line := CONTENT
+ second_syllable is := BEGIN
+ third_syllable is := BIN;
+ fourth_syllable is := %
+ fifth_syllable is := Can
+
+ Parsing address line := CONTENT
+ second_syllable is := BEGIN
+ third_syllable is := BIN;
+ fourth_syllable is := %
+ fifth_syllable is := Can
+
+ Parsing address line := 0000
+ second_syllable is := :
+ third_syllable is := 0100001011111100;
+ fourth_syllable is := %
+ fifth_syllable is := ADDC
+
+ Parsing address line := 0001
+ second_syllable is := :
+ third_syllable is := 0100001100000101;
+ fourth_syllable is := %
+ fifth_syllable is := SUBC
+
+ Parsing address line := 0002
+ second_syllable is := :
+ third_syllable is := 0011001100010100;
+ fourth_syllable is := %
+ fifth_syllable is := ADD
+
+ Parsing address line := 0003
+ second_syllable is := :
+ third_syllable is := 0011001010011001;
+ fourth_syllable is := %
+ fifth_syllable is := SUB
+
+ Parsing address line := 0004
+ second_syllable is := :
+ third_syllable is := 0110001010001010;
+ fourth_syllable is := %
+ fifth_syllable is := SHLA
+
+ Parsing address line := 0005
+ second_syllable is := :
+ third_syllable is := 0100001100001000;
+ fourth_syllable is := %
+ fifth_syllable is := ADDC
+
+ Parsing address line := 0006
+ second_syllable is := :
+ third_syllable is := 0000001110010110;
+ fourth_syllable is := %
+ fifth_syllable is := CPY
+
+ Parsing address line := 0007
+ second_syllable is := :
+ third_syllable is := 0011001110011010;
+ fourth_syllable is := %
+ fifth_syllable is := MUL
+
+ Parsing address line := 0008
+ second_syllable is := :
+ third_syllable is := 0000001110010111;
+ fourth_syllable is := %
+ fifth_syllable is := SWAP
+
+ Parsing address line := 0009
+ second_syllable is := :
+ third_syllable is := 0111001010001101;
+ fourth_syllable is := %
+ fifth_syllable is := ROTR
+
+ Parsing address line := 000a
+ second_syllable is := :
+ third_syllable is := 0011001110010111;
+ fourth_syllable is := %
+ fifth_syllable is := DIV
+
+ Parsing address line := 000b
+ second_syllable is := :
+ third_syllable is := 0000010000011110;
+ fourth_syllable is := %
+ fifth_syllable is := CPY
+
+ Parsing address line := 000c
+ second_syllable is := :
+ third_syllable is := 0101010000010111;
+ fourth_syllable is := %
+ fifth_syllable is := XOR
+
+ Parsing address line := 000d
+ second_syllable is := :
+ third_syllable is := 0111001010001011;
+ fourth_syllable is := %
+ fifth_syllable is := RTRC
+
+ Parsing address line := 000e
+ second_syllable is := :
+ third_syllable is := 001010000000000;
+ fourth_syllable is := %
+ fifth_syllable is := JMPC
+
+ Parsing address line := 000f
+ second_syllable is := :
+ third_syllable is := @jmp_here;
+ fourth_syllable is := %
+ fifth_syllable is := JMPC
+000f : 0000000000010000; % @jmp_here; % 
+
+ Parsing address line := 0011
+ second_syllable is := :
+ third_syllable is := 0000010101010101
+ fourth_syllable is := %
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := 0012
+ second_syllable is := :
+ third_syllable is := 0000001010000000;
+ fourth_syllable is := %
+ fifth_syllable is := LD
+
+ Parsing address line := 0013
+ second_syllable is := :
+ third_syllable is := 0000010101010101
+ fourth_syllable is := %
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := 0013
+ second_syllable is := :
+ third_syllable is := 0000010101010101
+ fourth_syllable is := %
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := 0013
+ second_syllable is := :
+ third_syllable is := 0000010101010101
+ fourth_syllable is := %
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := 0013
+ second_syllable is := :
+ third_syllable is := 0000010101010101
+ fourth_syllable is := %
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := 0013
+ second_syllable is := :
+ third_syllable is := 0000010101010101
+ fourth_syllable is := %
+ fifth_syllable is := 0x0555];
+
+ Parsing address line := 0013
+ second_syllable is := :
+ third_syllable is := 0000010101010101
+ fourth_syllable is := %
+ fifth_syllable is := 0x0555];
+
+
+Step2: Assembly
+ 		==> Concluded successfully. <==
+
+The files are now being closed.

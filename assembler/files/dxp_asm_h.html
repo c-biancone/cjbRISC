@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>C:\Users\dxpeee\Desktop\dxp_ds2_asm\dxp_asm.h</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+.cpp1-assembler { color: #0000FF; }
+.cpp1-character { color: #000000; }
+.cpp1-comment { color: #0078D7; font-style: italic; }
+.cpp1-float { color: #800080; }
+.cpp1-hexadecimal { color: #800080; }
+.cpp1-identifier { color: #000000; }
+.cpp1-illegalchar { color: #000000; }
+.cpp1-number { color: #800080; }
+.cpp1-octal { color: #800080; }
+.cpp1-preprocessor { color: #008000; }
+.cpp1-reservedword { color: #000000; font-weight: bold; }
+.cpp1-space { background-color: #FFFFFF; color: #000000; }
+.cpp1-string { color: #0000FF; font-weight: bold; }
+.cpp1-symbol { color: #FF0000; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<code><span style="font: 10pt Consolas;"><span class="cpp1-preprocessor">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+</span><span class="cpp1-comment">/*===========================================================================*/
+/* IF dxpDEBUG != 0, code segments between #if dxpDEBUG and #endif will be
+compiled.  If dxpDEBUG == 0 ==&gt; not.  Useful to eliminate printf's used for 
+debugging purposes in the final release version.*/
+/*===========================================================================*/
+/*===========================================================================*/
+/* The dxp_get_fname gets the assembly source file (asf) name, opens it,
+checks if it exists, and returns the pointer to it. */
+/*===========================================================================*/
+</span><span class="cpp1-identifier">FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">dxp_get_fname</span><span class="cpp1-symbol">();
+</span><span class="cpp1-comment">/*===========================================================================*/
+/* The step1_syntax_check subroutine checks for the correct structure of the 
+assembly source code file and for syntax errors at the beginning of each line 
+of code */
+/*===========================================================================*/
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> step1_syntax_check</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">in1_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">out1_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">out2_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> \
+			FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">out3_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">const</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_im</span><span class="cpp1-symbol">[</span><span class="cpp1-number">33</span><span class="cpp1-symbol">]);
+</span><span class="cpp1-comment">/*===========================================================================*/
+/* The step2_assembly subroutine assembles each instrcution into the machine 
+language instruction word format */
+/*===========================================================================*/
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> step2_assembly</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">int1_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">int2_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> \
+				FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">int3_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">out1_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">const</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_im</span><span class="cpp1-symbol">[</span><span class="cpp1-number">16</span><span class="cpp1-symbol">],</span><span class="cpp1-space"> \
+				</span><span class="cpp1-reservedword">const</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_opcode</span><span class="cpp1-symbol">[</span><span class="cpp1-number">16</span><span class="cpp1-symbol">],</span><span class="cpp1-space"> \
+				</span><span class="cpp1-reservedword">const</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_ri</span><span class="cpp1-symbol">[</span><span class="cpp1-number">4</span><span class="cpp1-symbol">],</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">const</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_rifv</span><span class="cpp1-symbol">[</span><span class="cpp1-number">4</span><span class="cpp1-symbol">],</span><span class="cpp1-space"> \
+				</span><span class="cpp1-reservedword">const</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_rj</span><span class="cpp1-symbol">[</span><span class="cpp1-number">4</span><span class="cpp1-symbol">],</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">const</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_rjfv</span><span class="cpp1-symbol">[</span><span class="cpp1-number">4</span><span class="cpp1-symbol">],</span><span class="cpp1-space"> \
+				</span><span class="cpp1-reservedword">const</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_mrj</span><span class="cpp1-symbol">[</span><span class="cpp1-number">4</span><span class="cpp1-symbol">]);
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> dxp_int2binstr</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> crt_int</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> str_len</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">ret_str</span><span class="cpp1-symbol">);
+
+
+</span></span>
+</code></pre>
+</body>
+</html>

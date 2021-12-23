@@ -42,7 +42,7 @@ cjbRISC_HMMIOP_CU_v CU (.Reset (Reset), .Clock (Clock), .IW (IW), .SR_CNVZ (SR_C
 // ICdecode instance - described behaviorally at the lower hierarchical level
 // COMMENT OUT WHEN COMPILING FOR FPGA IMPLEMENTATION
 // for debugging in ModelSim only
-// cjb_IW2ASCII_v ICdecode (.IW (IW), .Reset (Reset), .Clock (Clock), .ICis (ICis));
+cjb_IW2ASCII_v ICdecode (.IW (IW), .Reset (Reset), .Clock (Clock), .ICis (ICis));
 // currently uncommented for simulation
 
 endmodule

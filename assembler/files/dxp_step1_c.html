@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>C:\Users\dxpeee\Desktop\dxp_ds2_asm\dxp_step1.c</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+.cpp1-assembler { color: #0000FF; }
+.cpp1-character { color: #000000; }
+.cpp1-comment { color: #0078D7; font-style: italic; }
+.cpp1-float { color: #800080; }
+.cpp1-hexadecimal { color: #800080; }
+.cpp1-identifier { color: #000000; }
+.cpp1-illegalchar { color: #000000; }
+.cpp1-number { color: #800080; }
+.cpp1-octal { color: #800080; }
+.cpp1-preprocessor { color: #008000; }
+.cpp1-reservedword { color: #000000; font-weight: bold; }
+.cpp1-space { background-color: #FFFFFF; color: #000000; }
+.cpp1-string { color: #0000FF; font-weight: bold; }
+.cpp1-symbol { color: #FF0000; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<code><span style="font: 10pt Consolas;"><span class="cpp1-comment">/*===========================================================================*/
+/* The step1_syntax_check subroutine checks for the correct structure of the 
+assembly source code file and for syntax errors at the beginning of each line 
+of code */
+/*===========================================================================*/
+/* Includes stdio.lib and std.lib */
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-preprocessor">#include &quot;dxp_asm.h&quot; 
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> step1_syntax_check</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">in1_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> out1_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> out2_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> out3_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_im</span><span class="cpp1-symbol">)
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/* Parameter types declarations. */
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">in1_fname</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">out1_fname</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">out2_fname</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> FILE </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">out3_fname</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">const</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">	</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">crt_im</span><span class="cpp1-symbol">[</span><span class="cpp1-number">16</span><span class="cpp1-symbol">];</span><span class="cpp1-space"> </span><span class="cpp1-comment">/*Current Instruction Mnemonic*/
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/* Local constants and variables declarations. */
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">	crt_line</span><span class="cpp1-symbol">[</span><span class="cpp1-number">81</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">	crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">20</span><span class="cpp1-symbol">],</span><span class="cpp1-space"> nxt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">20</span><span class="cpp1-symbol">];</span><span class="cpp1-space"> </span><span class="cpp1-comment">/*Temporary storage for the 
+								syllables currently expected and analyzed*/
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">		asf_line_number </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> </span><span class="cpp1-comment">/*assembly source file line number*/
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">		i</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> j</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> k</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> match</span><span class="cpp1-symbol">;
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*#define dxpDEBUG - printf for debugging purposes*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-preprocessor">#define dxpDEBUG = 1;
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/* Read the first line, which is expected to be a comment, i.e. should start with ; */</span><span class="cpp1-space">	
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	fgets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-number">81</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> in1_fname</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nParsing line %3u: %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">	sscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> ';'</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Line %3u is a comment ... OK!  Ignoring the rest of the line.&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nExpecting line %3u to be a comment, i.e. the first character to be &lt;;&gt; ! \
+		Ignoring the rest of the line.&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/* Read the next lines; expect more comments or the beginning of the directives segment */</span><span class="cpp1-space">	
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	i </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">((</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.directives;&quot;</span><span class="cpp1-symbol">))</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">20</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		fgets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-number">81</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> in1_fname</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">asf_line_number</span><span class="cpp1-symbol">;
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nParsing line %3u: %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		sscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> ';'</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   This line seems to be a comment.  Ignoring the rest of the line.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.directives;&quot;</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Reached the beginning of the .directives segment on line %3u.&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Syntax Error in line %3u - expecting .directives;&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-space"> </span><span class="cpp1-comment">/*End of first while loop*/
+/*---------------------------------------------------------------------------*/
+/* Read the next lines; expect more comments, .equ directives or the end of the directives segment */
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	i </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">((</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.enddirectives;&quot;</span><span class="cpp1-symbol">))</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">20</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		fgets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-number">81</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> in1_fname</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">asf_line_number</span><span class="cpp1-symbol">;
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nParsing line %3u: %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		sscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> ';'</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   This line seems to be a comment.  Ignoring the rest of the line.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.equ&quot;</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   The beginning of this line is OK!  Saving it in the dir.txt file.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		fprintf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">out1_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%3u   %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.enddirectives;&quot;</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Reached the end of the .directives segment on line %3u.&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Syntax Error in line %3u - expecting .equ or ;&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-symbol">}</span><span class="cpp1-comment">/*End of second while loop*/
+/*---------------------------------------------------------------------------*/
+/* Read the next lines; expect more comments or the beginning of the .const segment */</span><span class="cpp1-space">	
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	i </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">((</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.constants;&quot;</span><span class="cpp1-symbol">))</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">20</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		fgets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-number">81</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> in1_fname</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">asf_line_number</span><span class="cpp1-symbol">;
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nParsing line %3u: %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		sscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> ';'</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   This line seems to be a comment.  Ignoring the rest of the line.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.constants;&quot;</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Reached the beginning of the .constants segment on line %3u.&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Syntax Error in line %3u - expecting .constants;&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-comment">/*End of third while loop*/
+/*---------------------------------------------------------------------------*/
+/* Read the next lines; expect more comments, .word directives or the end of the .constants segment */
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	i </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">((</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.endconstants;&quot;</span><span class="cpp1-symbol">))</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">20</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		fgets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-number">81</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> in1_fname</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">asf_line_number</span><span class="cpp1-symbol">;
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nParsing line %3u: %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		sscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> ';'</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   This line seems to be a comment.  Ignoring the rest of the line.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.word&quot;</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   The beginning of this line is OK!  Saving it in the const.txt file.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		fprintf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">out2_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%3u   %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.endconstants;&quot;</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Reached the end of the .constants segment on line %3u.&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Syntax Error in line %3u - expecting .word or ;&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	
+	</span><span class="cpp1-symbol">}</span><span class="cpp1-comment">/*End of the fourth while loop*/
+/*---------------------------------------------------------------------------*/
+/* Read the next lines; expect more comments or the beginning of the .code segment */</span><span class="cpp1-space">	
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	i </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">((</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.code;&quot;</span><span class="cpp1-symbol">))</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">20</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		fgets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-number">81</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> in1_fname</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">asf_line_number</span><span class="cpp1-symbol">;
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nParsing line %3u: %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		sscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> ';'</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   This line seems to be a comment.  Ignoring the rest of the line.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.code;&quot;</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Reached the beginning of the .code segment on line %3u.&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Syntax Error in line %3u - expecting .code;&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-comment">/*End of fifth while loop*/
+/*---------------------------------------------------------------------------*/
+/* Read the next lines; expect more comments, instruction mnemonics,
+ or the end of the .code segment.  For debugging purposes limit this section to 100 lines. */
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	i </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*While the .endcode keyboard has not been read AND 1000 lines of assembly
+have not been read AND the EOF has not been reached, continue ...
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">((</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.endcode;&quot;</span><span class="cpp1-symbol">))</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">1000</span><span class="cpp1-symbol">)</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-space"> EOF</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Read the next line - maximum 80 characters plus the EOF character.
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">		fgets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-number">81</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> in1_fname</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">asf_line_number</span><span class="cpp1-symbol">;
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nParsing line %3u: %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">		sscanf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_line</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%s %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">&amp;</span><span class="cpp1-identifier">nxt_syllable</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> match </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;</span><span class="cpp1-space"> j </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Check to see if current syllable is a valid instruction mnemonic; if yes,
+save the line in the code.txt file.*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-space"> j </span><span class="cpp1-symbol">&lt;</span><span class="cpp1-space"> </span><span class="cpp1-number">16</span><span class="cpp1-space"> </span><span class="cpp1-symbol">)</span><span class="cpp1-space"> 
+			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_im</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">j</span><span class="cpp1-symbol">])</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">				</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   The beginning of this line is OK!  Saving it in the code.txt file.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">	fprintf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">out3_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%3u   %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	match </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">j</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}</span><span class="cpp1-comment">/*End of inner while loop*/
+/*---------------------------------------------------------------------------*/
+/*Check to see if the line starts with a label followed by a valid 
+instruction mnemonic*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">		k </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> '@'</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">while</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-space"> k </span><span class="cpp1-symbol">&lt;</span><span class="cpp1-space"> </span><span class="cpp1-number">16</span><span class="cpp1-space"> </span><span class="cpp1-symbol">)</span><span class="cpp1-space"> 
+				</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">nxt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_im</span><span class="cpp1-symbol">[</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">])</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">					</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   The beginning of this line is OK!  Saving it in the code.txt file.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">	fprintf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">out3_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;%3u   %s&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> crt_line</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	match </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">					</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">				</span><span class="cpp1-symbol">++</span><span class="cpp1-identifier">k</span><span class="cpp1-symbol">;</span><span class="cpp1-space">		
+			</span><span class="cpp1-symbol">}</span><span class="cpp1-comment">/*End of second inner while loop*/
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}</span><span class="cpp1-comment">/*End of if construct*/
+/*---------------------------------------------------------------------------*/
+/*Check to see if line is a comment - ignore it.
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]</span><span class="cpp1-space"> </span><span class="cpp1-symbol">==</span><span class="cpp1-space"> ';'</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   This line seems to be a comment.  Ignoring the rest of the line.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(!</span><span class="cpp1-identifier">strcmp</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">crt_syllable</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;.endcode;&quot;</span><span class="cpp1-symbol">))
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-preprocessor">#ifdef dxpDEBUG
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Reached the end of the .code segment on line %3u.&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-preprocessor">#endif
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">if</span><span class="cpp1-space"> </span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">match </span><span class="cpp1-symbol">!=</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;   Syntax Error in line %3u - expecting instruction mnemonic, \
+		&lt;.label:&gt;, &lt;.endcode;&gt;, or &lt;;&gt;&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> asf_line_number</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}</span><span class="cpp1-comment">/*End of sixth while loop*/
+</span><span class="cpp1-space">	fprintf</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">out3_fname</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">return</span><span class="cpp1-symbol">;
+}
+
+</span></span>
+</code></pre>
+</body>
+</html>

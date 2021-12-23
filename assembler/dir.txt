@@ -1,0 +1,2 @@
+ 12   	.equ	constOne	0x1;
+ 13   	.equ	constTwo	0x2;

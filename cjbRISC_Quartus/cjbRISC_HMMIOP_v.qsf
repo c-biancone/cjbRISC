@@ -38,15 +38,13 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
-set_global_assignment -name TOP_LEVEL_ENTITY cjbRISC_HMMIOP_v_FPGA
+set_global_assignment -name TOP_LEVEL_ENTITY cjbRISC_HMMIOP_v
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:18:09  OCTOBER 24, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
@@ -57,29 +55,25 @@ set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH cjbRISC_HMMIOP_
 set_global_assignment -name EDA_TEST_BENCH_NAME cjbRISC_HMMIOP_v_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id cjbRISC_HMMIOP_v_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME cjbRISC_HMMIOP_v_tb -section_id cjbRISC_HMMIOP_v_tb
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_location_assignment PIN_R8 -to Clk_50
-set_location_assignment PIN_L3 -to leds[7]
-set_location_assignment PIN_B1 -to leds[6]
-set_location_assignment PIN_F3 -to leds[5]
-set_location_assignment PIN_D1 -to leds[4]
-set_location_assignment PIN_A11 -to leds[3]
-set_location_assignment PIN_B13 -to leds[2]
-set_location_assignment PIN_A13 -to leds[1]
-set_location_assignment PIN_A15 -to leds[0]
-set_location_assignment PIN_E1 -to pb[1]
-set_location_assignment PIN_J15 -to pb[0]
-set_location_assignment PIN_M15 -to sw[3]
-set_location_assignment PIN_B9 -to sw[2]
-set_location_assignment PIN_T8 -to sw[1]
-set_location_assignment PIN_M1 -to sw[0]
-set_global_assignment -name EDA_TEST_BENCH_FILE ../verilog_RISC/cjbRISC_HMMIOP_v_tb.v -section_id cjbRISC_HMMIOP_v_tb
+set_location_assignment PIN_R8 -to Clock
+set_location_assignment PIN_L3 -to LEDs[7]
+set_location_assignment PIN_B1 -to LEDs[6]
+set_location_assignment PIN_F3 -to LEDs[5]
+set_location_assignment PIN_D1 -to LEDs[4]
+set_location_assignment PIN_A11 -to LEDs[3]
+set_location_assignment PIN_B13 -to LEDs[2]
+set_location_assignment PIN_A13 -to LEDs[1]
+set_location_assignment PIN_A15 -to LEDs[0]
+set_location_assignment PIN_E1 -to PB1
+set_location_assignment PIN_J15 -to Reset
+set_location_assignment PIN_M15 -to SW[3]
+set_location_assignment PIN_B9 -to SW[2]
+set_location_assignment PIN_T8 -to SW[1]
+set_location_assignment PIN_M1 -to SW[0]
+set_global_assignment -name MIF_FILE ../verilog_RISC/cjb_MUL_mmiop.mif
 set_global_assignment -name QIP_FILE ../verilog_RISC/cjb_PM_HMMIOP_v.qip
 set_global_assignment -name QIP_FILE ../verilog_RISC/cjb_DM_HMMIOP_v.qip
 set_global_assignment -name VERILOG_FILE ../verilog_RISC/cjbRISC_HMMIOP_v_tb.v
-set_global_assignment -name VERILOG_FILE ../verilog_RISC/cjbRISC_HMMIOP_v_FPGA.v
 set_global_assignment -name VERILOG_FILE ../verilog_RISC/cjbRISC_HMMIOP_v.v
 set_global_assignment -name VERILOG_FILE ../verilog_RISC/cjbRISC_HMMIOP_DP_v.v
 set_global_assignment -name VERILOG_FILE ../verilog_RISC/cjbRISC_HMMIOP_CU_v.v
@@ -96,4 +90,8 @@ set_global_assignment -name VERILOG_FILE ../verilog_primitives/cjb_nbit_mux2to1_
 set_global_assignment -name VERILOG_FILE ../verilog_primitives/cjb_nbit_cntup_v.v
 set_global_assignment -name VERILOG_FILE ../verilog_primitives/cjb_nbit_4loc_stack_v.v
 set_global_assignment -name VERILOG_FILE ../verilog_primitives/cjb_fa_struc_v.v
+set_global_assignment -name EDA_TEST_BENCH_FILE ../verilog_RISC/cjbRISC_HMMIOP_v_tb.v -section_id cjbRISC_HMMIOP_v_tb
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

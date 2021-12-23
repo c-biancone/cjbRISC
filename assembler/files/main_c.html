@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>C:\Users\dxpeee\Desktop\dxp_ds2_asm\main.c</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+.cpp1-assembler { color: #0000FF; }
+.cpp1-character { color: #000000; }
+.cpp1-comment { color: #0078D7; font-style: italic; }
+.cpp1-float { color: #800080; }
+.cpp1-hexadecimal { color: #800080; }
+.cpp1-identifier { color: #000000; }
+.cpp1-illegalchar { color: #000000; }
+.cpp1-number { color: #800080; }
+.cpp1-octal { color: #800080; }
+.cpp1-preprocessor { color: #008000; }
+.cpp1-reservedword { color: #000000; font-weight: bold; }
+.cpp1-space { background-color: #FFFFFF; color: #000000; }
+.cpp1-string { color: #0000FF; font-weight: bold; }
+.cpp1-symbol { color: #FF0000; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<code><span style="font: 10pt Consolas;"><span class="cpp1-preprocessor">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+</span><span class="cpp1-comment">/* My include header file */
+</span><span class="cpp1-preprocessor">#include &quot;dxp_asm.h&quot;
+</span><span class="cpp1-comment">/*===========================================================================*/
+/* Run this program using the command (prompt) console */
+/* Below is the main function */
+/*===========================================================================*/
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> main</span><span class="cpp1-symbol">(</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> argc</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">argv</span><span class="cpp1-symbol">[])</span><span class="cpp1-space"> </span><span class="cpp1-symbol">{
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*open assembly source file, intermediate directives file, intermediate 
+constants file, intermediate code file, and output *.mif file */
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	FILE	</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">fopen</span><span class="cpp1-symbol">(),</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">in_ass</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">int_dir</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">int_const</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">int_code</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">out_mif</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> 	ass_fname</span><span class="cpp1-symbol">[</span><span class="cpp1-number">13</span><span class="cpp1-symbol">];
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Contains the instruction mnemonic array of strings declaration and definition.*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-preprocessor">#include &quot;dxp_const.h&quot; 
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Get the name of the assembly source file and open it for read.*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	in_ass </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> dxp_get_fname</span><span class="cpp1-symbol">();</span><span class="cpp1-space"> 
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Open the other intermmediate files.*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	int_dir </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;dir.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;w&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	int_const </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;const.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;w&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	int_code </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;code.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;w&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Call the subroutine that performs the checks for the correct structure of the 
+assembly source code file and for syntax errors at the beginning of each line 
+of code.*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n\nStep1: Structural and Preliminary Syntactical Check:\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	step1_syntax_check</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">in_ass</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> int_dir</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> int_const</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> int_code</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> im</span><span class="cpp1-symbol">);
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*First good news ;-)*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n\nStep1: Structural and Preliminary Syntactical Check\n \
+		==&gt; Concluded successfully. &lt;==&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n\nThe files are now being closed.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*To be safe, close all files here.*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">in_ass</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">int_dir</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">int_const</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">int_code</span><span class="cpp1-symbol">);
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Reopen intermmediate files and output mif file:*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n\nThe files are now being opened.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	out_mif </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;dxp.mif&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;w&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> int_dir </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;dir.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;r&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	int_const </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;const.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;r&quot;</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> int_code </span><span class="cpp1-symbol">=</span><span class="cpp1-space"> fopen</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;code.txt&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> </span><span class="cpp1-string">&quot;r&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n\nStep2: Assembly:\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	step2_assembly</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">int_code</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> int_dir</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> int_const</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> out_mif</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> im</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> OpCode</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> \
+					Rsd</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> RsdFieldValue</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> Rs2</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> Rs2FieldValue</span><span class="cpp1-symbol">,</span><span class="cpp1-space"> mrj</span><span class="cpp1-symbol">);</span><span class="cpp1-space">	
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/* Second good news ;-)*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n\nStep2: Assembly\n \
+		==&gt; Concluded successfully. &lt;==&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n\nThe files are now being closed.&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n\nGood luck with the execution of this program on your fmlRISC ;-)&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Close ALL files.*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">out_mif</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">int_dir</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">int_const</span><span class="cpp1-symbol">);</span><span class="cpp1-space"> fclose</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">int_code</span><span class="cpp1-symbol">);
+</span><span class="cpp1-comment">/*---------------------------------------------------------------------------*/
+/*Done.*/
+/*---------------------------------------------------------------------------*/
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+}
+
+</span></span>
+</code></pre>
+</body>
+</html>

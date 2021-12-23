@@ -23,9 +23,6 @@ integer i;
 
 cjbRISC_HMMIOP_v muv (.Reset (Reset_tb), .Clock (Clock_tb), .PB1 (PB1_tb), .SW (SW_tb),
     .LEDs (LEDs_tb), .ICis (ICis_tb), .crtMCis (crtMCis_tb));
-    
-//cjbRISC_HMMIOP_v_FPGA muv (.Reset (Reset_tb), .Clock (Clock_tb), .PB1 (PB1_tb), .SW (SW_tb),
-//    .LEDs (LEDs_tb), .crtMCis (crtMCis_tb));
 
 initial begin
 
@@ -38,7 +35,7 @@ initial begin
   for (i=0; i<30; i=i+1)
     apply_test_vector(0, 0, 1, 4'b0000);
   // reduced from 700 iterations
-  for (i=30; i<700; i=i+1)
+  for (i=30; i<200; i=i+1)
     apply_test_vector(0, 0, 1, 4'b1111);
 end
 

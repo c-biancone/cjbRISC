@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/output_files/") File("cjbRISC_HMMIOP_v.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22F17) Path("D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/output_files/") File("cjbRISC_HMMIOP_v.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

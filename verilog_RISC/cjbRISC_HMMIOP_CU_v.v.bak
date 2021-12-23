@@ -250,7 +250,7 @@ always @ (posedge Clock) begin
           LD_IPDR = 1'b0; LD_OPDR = 1'b0; push = 1'b0; pop = 1'b0; ipstksel = 1'b0;
           IB0_SEL = 2'b00; IB1_SEL = 2'b00;
           // MARout > 10'h3FD ? IB2 <= IPDR : IB2 <= DM
-          if (MARout > 10'h3FB) IB2_SEL = 2'b11;
+          if (MARout >= 10'h3FC) IB2_SEL = 2'b11;
           else IB2_SEL = 2'b10;
           crtMCis = MC4; MC = MC0; end
 
@@ -262,8 +262,7 @@ always @ (posedge Clock) begin
           LD_IPDR = 1'b0;  push = 1'b0; pop = 1'b0; ipstksel = 1'b0;
           IB0_SEL = Rsd; IB1_SEL = 2'b00; IB2_SEL = 2'b00;
           // output case
-          // >= 10'h2FC for Hello World program
-          if (MARout > 10'h3FB) begin RW = 1'b0; LD_OPDR = 1'b1; end
+          if (MARout >= 10'h3FC) begin RW = 1'b0; LD_OPDR = 1'b1; end
           else begin RW = 1'b1; LD_OPDR = 1'b0; end
           crtMCis = MC4; MC = MC0; end
 
