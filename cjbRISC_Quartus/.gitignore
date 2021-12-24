@@ -16,7 +16,7 @@
 *.hex
 *.html
 *.jdi
-*.jpg
+# *.jpg
 # *.mif # using these in the project
 # *.pdf
 *.pin
@@ -42,14 +42,12 @@
 # ignore Quartus II generated folders
 */db/
 */incremental_db/
-*/simulation/
 */timing/
 */testbench/
 */*_sim/
 incremental_db/
 db/
 */output_files/
-simulation/
 greybox_tmp/
 dxpRISC_HMMIOP_v_restored/
 

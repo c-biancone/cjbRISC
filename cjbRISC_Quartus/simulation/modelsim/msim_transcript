@@ -1,0 +1,276 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do cjbRISC_HMMIOP_v_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_PM_HMMIOP_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:56 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_PM_HMMIOP_v.v 
+# -- Compiling module cjb_PM_HMMIOP_v
+# 
+# Top level modules:
+# 	cjb_PM_HMMIOP_v
+# End time: 00:30:56 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_DM_HMMIOP_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:56 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_DM_HMMIOP_v.v 
+# -- Compiling module cjb_DM_HMMIOP_v
+# 
+# Top level modules:
+# 	cjb_DM_HMMIOP_v
+# End time: 00:30:56 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_v.v 
+# -- Compiling module cjbRISC_HMMIOP_v
+# 
+# Top level modules:
+# 	cjbRISC_HMMIOP_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_DP_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_DP_v.v 
+# -- Compiling module cjbRISC_HMMIOP_DP_v
+# 
+# Top level modules:
+# 	cjbRISC_HMMIOP_DP_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_CU_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_CU_v.v 
+# -- Compiling module cjbRISC_HMMIOP_CU_v
+# 
+# Top level modules:
+# 	cjbRISC_HMMIOP_CU_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_IW2ASCII_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_IW2ASCII_v.v 
+# -- Compiling module cjb_IW2ASCII_v
+# 
+# Top level modules:
+# 	cjb_IW2ASCII_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_sr_unit_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_sr_unit_v.v 
+# -- Compiling module cjb_8bit_sr_unit_v
+# 
+# Top level modules:
+# 	cjb_8bit_sr_unit_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_logic_unit_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_logic_unit_v.v 
+# -- Compiling module cjb_8bit_logic_unit_v
+# 
+# Top level modules:
+# 	cjb_8bit_logic_unit_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_const_unit_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_const_unit_v.v 
+# -- Compiling module cjb_8bit_const_unit_v
+# 
+# Top level modules:
+# 	cjb_8bit_const_unit_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_arith_unit_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_arith_unit_v.v 
+# -- Compiling module cjb_8bit_arith_unit_v
+# 
+# Top level modules:
+# 	cjb_8bit_arith_unit_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_alu_struc_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:57 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_alu_struc_v.v 
+# -- Compiling module cjb_8bit_alu_struc_v
+# 
+# Top level modules:
+# 	cjb_8bit_alu_struc_v
+# End time: 00:30:57 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_addsub_struc_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:58 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_addsub_struc_v.v 
+# -- Compiling module cjb_8bit_addsub_struc_v
+# 
+# Top level modules:
+# 	cjb_8bit_addsub_struc_v
+# End time: 00:30:58 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_reg_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:58 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_reg_v.v 
+# -- Compiling module cjb_nbit_reg_v
+# 
+# Top level modules:
+# 	cjb_nbit_reg_v
+# End time: 00:30:58 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:58 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v 
+# -- Compiling module cjb_nbit_mux4to1_struc_v
+# 
+# Top level modules:
+# 	cjb_nbit_mux4to1_struc_v
+# End time: 00:30:58 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:58 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v 
+# -- Compiling module cjb_nbit_mux2to1_struc_v
+# 
+# Top level modules:
+# 	cjb_nbit_mux2to1_struc_v
+# End time: 00:30:58 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_cntup_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:58 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_cntup_v.v 
+# -- Compiling module cjb_nbit_cntup_v
+# 
+# Top level modules:
+# 	cjb_nbit_cntup_v
+# End time: 00:30:58 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_4loc_stack_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:58 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_4loc_stack_v.v 
+# -- Compiling module cjb_nbit_4loc_stack_v
+# 
+# Top level modules:
+# 	cjb_nbit_4loc_stack_v
+# End time: 00:30:58 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_fa_struc_v.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:58 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_fa_struc_v.v 
+# -- Compiling module cjb_fa_struc_v
+# 
+# Top level modules:
+# 	cjb_fa_struc_v
+# End time: 00:30:58 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/../verilog_RISC {D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/../verilog_RISC/cjbRISC_HMMIOP_v_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:30:58 on Dec 24,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/../verilog_RISC" D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/../verilog_RISC/cjbRISC_HMMIOP_v_tb.v 
+# -- Compiling module cjbRISC_HMMIOP_v_tb
+# 
+# Top level modules:
+# 	cjbRISC_HMMIOP_v_tb
+# End time: 00:30:58 on Dec 24,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  cjbRISC_HMMIOP_v_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" cjbRISC_HMMIOP_v_tb 
+# Start time: 00:30:58 on Dec 24,2021
+# Loading work.cjbRISC_HMMIOP_v_tb
+# Loading work.cjbRISC_HMMIOP_v
+# Loading work.cjbRISC_HMMIOP_DP_v
+# Loading work.cjb_nbit_mux4to1_struc_v
+# Loading work.cjb_nbit_mux2to1_struc_v
+# Loading work.cjb_nbit_reg_v
+# Loading work.cjb_8bit_alu_struc_v
+# Loading work.cjb_8bit_arith_unit_v
+# Loading work.cjb_8bit_addsub_struc_v
+# Loading work.cjb_fa_struc_v
+# Loading work.cjb_8bit_logic_unit_v
+# Loading work.cjb_8bit_sr_unit_v
+# Loading work.cjb_8bit_const_unit_v
+# Loading work.cjb_nbit_cntup_v
+# Loading work.cjb_PM_HMMIOP_v
+# Loading altera_mf_ver.altsyncram
+# Loading work.cjb_DM_HMMIOP_v
+# Loading work.cjb_nbit_4loc_stack_v
+# Loading work.cjbRISC_HMMIOP_CU_v
+# Loading work.cjb_IW2ASCII_v
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+do hello.do
+restart -f
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+run -all

@@ -8,11 +8,9 @@
 [![MIT License][license-shield]][license-url] -->
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<br/>
-<p align="center">
-<img src="documents/README/cjbRISC_HMMIOP_DP.png">
-</p>
-<br/>
+| ![Hi](documents/README/Hello,_World!.png) |
+|:--:|
+| cjbRISC CPU saying hi! |
 
 <!-- DESCRIPTION -->
   <p align="left">
@@ -80,6 +78,11 @@ This was used to develop the <a href="https://github.com/c-biancone/cjbRISC/veri
 |:--:|
 </br>
 
+This is the as-compiled version shown in the Netlist Viewer:
+
+| ![DP](documents/README/cjbRISC_HMMIOP_DP.png) |
+|:--:|
+
 The address for the Memory-Mapped I/O is calculated by sign extending the output from the program memory and adding it with a "memory offset" brought in from the writeback bus.
 
 
@@ -117,7 +120,10 @@ To implement CPU in hardware:
 
 2. Set ModelSim-Altera as the EDA tool simulation environment and make sure `cjbRISC_HMMIOP_v_tb.v` is set as the testbench to compile.
 
-3. To select the program to run, navigate to the <a href="https://github.com/c-biancone/cjbRISC/tree/main/programs">programs</a> directory and copy the desired program to <a href="https://github.com/c-biancone/cjbRISC/tree/main/cjbRISC_Quartus">cjbRISC_Quartus</a>. Change `Line 86` in `cjb_PM_HMMIOP_v` to include the name of the correct program.
+3. To select the program to run, navigate to the <a href="https://github.com/c-biancone/cjbRISC/tree/main/programs">programs</a> directory and copy the desired program to <a href="https://github.com/c-biancone/cjbRISC/tree/main/cjbRISC_Quartus/simulation/ModelSim">cjbRISC_Quartus/simulation/ModelSim</a>. Change `Line 86` in `cjb_PM_HMMIOP_v` to include the name of the correct program.
+     *  `cjb_PM_HMMIOP_P1` performs some random operations to test the functionality of all instructions.
+     *  `cjb_MUL_HMMIOP` simulates multiplication.
+     *  `cjb_PM_HMMIOP_P2-Hello_World` computes and prints out "Hello, World!" in ASCII code on the 8 LEDs of the FPGA board.
 
 4. To run only a simulation, set the top-level entity to `cjbRISC_HMMIOP_V.v` and run the Analysis and Synthesis. Once this is done, navigate to Tools > Run Simulation Tool > RTL Simulation.
 
@@ -130,7 +136,7 @@ To implement CPU in hardware:
 ## Future
 In its current state, this CPU works properly for all of the instructions it is intended to implement. I am considering implementing a multiplication unit, pipelined or not, which would significantly speed up many operations; this will require handling for overflow of results over 8 bits in length and appropriate clock synchronization to capture the correct output.
 
-My immediate plans for this project are to write my own assembler to generate the `.mif` files from simple Assembly code targeted toward this architecture. I was given a basic C-based assembler to work with this ISA, but it does not work for all instructions and can be improved upon. I plan on writing my own version in C++ to allow for easier lexical analysis and implement correct address offset handling for the Jump, Load, and Store instructions.
+My immediate plans for this project are to write my own assembler to generate the `.mif` files from simple Assembly code targeted toward this architecture. This will make it much easier to write programs compared to manually entering the machine code. I was given a basic C-based assembler to work with this ISA, but it does not work for all instructions and can be improved upon. I plan on writing my own version in C++ to allow for easier lexical analysis and implement correct address offset handling for the Jump, Load, and Store instructions.
 
 
 <!-- CONTACT -->
