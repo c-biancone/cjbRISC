@@ -70,7 +70,6 @@ set_location_assignment PIN_M15 -to SW[3]
 set_location_assignment PIN_B9 -to SW[2]
 set_location_assignment PIN_T8 -to SW[1]
 set_location_assignment PIN_M1 -to SW[0]
-set_global_assignment -name MIF_FILE ../verilog_RISC/cjb_MUL_mmiop.mif
 set_global_assignment -name QIP_FILE ../verilog_RISC/cjb_PM_HMMIOP_v.qip
 set_global_assignment -name QIP_FILE ../verilog_RISC/cjb_DM_HMMIOP_v.qip
 set_global_assignment -name VERILOG_FILE ../verilog_RISC/cjbRISC_HMMIOP_v_tb.v

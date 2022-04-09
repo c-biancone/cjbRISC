@@ -1,5 +1,4 @@
 vendor_name = ModelSim
-source_file = 1, ../verilog_RISC/cjb_MUL_mmiop.mif
 source_file = 1, D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_PM_HMMIOP_v.qip
 source_file = 1, D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_PM_HMMIOP_v.v
 source_file = 1, D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_DM_HMMIOP_v.qip
@@ -31,8 +30,8 @@ source_file = 1, c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.i
 source_file = 1, c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc
 source_file = 1, c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc
 source_file = 1, c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cbx.lst
-source_file = 1, D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/db/altsyncram_56c1.tdf
-source_file = 1, cjb_pm_hmmiop_p2-hello_world.mif
+source_file = 1, D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/db/altsyncram_opa1.tdf
+source_file = 1, D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/neuralNetMult.mif
 source_file = 1, D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/db/altsyncram_q7g1.tdf
 design_name = cjbRISC_HMMIOP_v
 instance = comp, \LEDs[0]~output , LEDs[0]~output, cjbRISC_HMMIOP_v, 1

@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/cjbRISC_Quartus/simulation/modelsim
 vcjb_8bit_addsub_struc_v
-Z1 !s110 1640323858
+Z1 !s110 1649452350
 !i10b 1
 !s100 [m7L:bURC4j<hJPLf7ZjH0
 IlG0d6X89HMfMPQ<Om@OaZ1
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1640323858.000000
+Z5 !s108 1649452350.000000
 !s107 D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_addsub_struc_v.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_addsub_struc_v.v|
 !i113 1
@@ -31,7 +31,7 @@ Z6 o-vlog01compat -work work
 Z7 !s92 -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU
 Z8 tCvgOpt 0
 vcjb_8bit_alu_struc_v
-Z9 !s110 1640323857
+R1
 !i10b 1
 !s100 ?nQ;YSked]TIhSzg5b;DO0
 IeSmWi2m3UIM55TYz]jf7d1
@@ -45,7 +45,7 @@ R4
 r1
 !s85 0
 31
-Z10 !s108 1640323857.000000
+R5
 !s107 D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_alu_struc_v.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_alu_struc_v.v|
 !i113 1
@@ -53,7 +53,7 @@ R6
 R7
 R8
 vcjb_8bit_arith_unit_v
-R9
+R1
 !i10b 1
 !s100 zN3BZ5<BV37RdSI2l@RIY3
 IiCRm1SU]NEj?ZLVM2MCQK3
@@ -67,7 +67,7 @@ R4
 r1
 !s85 0
 31
-R10
+R5
 !s107 D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_arith_unit_v.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_arith_unit_v.v|
 !i113 1
@@ -75,7 +75,7 @@ R6
 R7
 R8
 vcjb_8bit_const_unit_v
-R9
+R1
 !i10b 1
 !s100 dd@Oj26f=o>:N43KIFZT11
 Ija9Lf6>51k2dWnlo>KPB>2
@@ -89,7 +89,7 @@ R4
 r1
 !s85 0
 31
-R10
+R5
 !s107 D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_const_unit_v.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_const_unit_v.v|
 !i113 1
@@ -97,7 +97,7 @@ R6
 R7
 R8
 vcjb_8bit_logic_unit_v
-R9
+Z9 !s110 1649452349
 !i10b 1
 !s100 9Cj050^>h8QESiR<kSLco1
 I^aKz]6@NRke>_kzC?V?GU3
@@ -111,7 +111,7 @@ R4
 r1
 !s85 0
 31
-R10
+Z10 !s108 1649452349.000000
 !s107 D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_logic_unit_v.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_ALU/cjb_8bit_logic_unit_v.v|
 !i113 1
@@ -141,7 +141,7 @@ R6
 R7
 R8
 vcjb_DM_HMMIOP_v
-Z11 !s110 1640323856
+R9
 !i10b 1
 !s100 z@JMSc@zXz3^A>WH9SXK`0
 I1i4?HiM2L>`4NTF`4SgJ=3
@@ -150,17 +150,17 @@ R0
 w1636992113
 8D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_DM_HMMIOP_v.v
 FD:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_DM_HMMIOP_v.v
-Z12 L0 39
+Z11 L0 39
 R4
 r1
 !s85 0
 31
-Z13 !s108 1640323856.000000
+R10
 !s107 D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_DM_HMMIOP_v.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_DM_HMMIOP_v.v|
 !i113 1
 R6
-Z14 !s92 -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC
+Z12 !s92 -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC
 R8
 ncjb_@d@m_@h@m@m@i@o@p_v
 vcjb_fa_struc_v
@@ -183,7 +183,7 @@ R5
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_fa_struc_v.v|
 !i113 1
 R6
-Z15 !s92 -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives
+Z13 !s92 -vlog01compat -work work +incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives
 R8
 vcjb_IW2ASCII_v
 R9
@@ -195,7 +195,7 @@ R0
 w1636951202
 8D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_IW2ASCII_v.v
 FD:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_IW2ASCII_v.v
-Z16 L0 11
+Z14 L0 11
 R4
 r1
 !s85 0
@@ -205,7 +205,7 @@ R10
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_IW2ASCII_v.v|
 !i113 1
 R6
-R14
+R12
 R8
 ncjb_@i@w2@a@s@c@i@i_v
 vcjb_nbit_4loc_stack_v
@@ -228,7 +228,7 @@ R5
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_4loc_stack_v.v|
 !i113 1
 R6
-R15
+R13
 R8
 vcjb_nbit_cntup_v
 R1
@@ -250,7 +250,7 @@ R5
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_cntup_v.v|
 !i113 1
 R6
-R15
+R13
 R8
 vcjb_nbit_mux2to1_struc_v
 R1
@@ -272,7 +272,7 @@ R5
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v|
 !i113 1
 R6
-R15
+R13
 R8
 vcjb_nbit_mux4to1_struc_v
 R1
@@ -294,7 +294,7 @@ R5
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v|
 !i113 1
 R6
-R15
+R13
 R8
 vcjb_nbit_reg_v
 R1
@@ -316,29 +316,29 @@ R5
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_reg_v.v|
 !i113 1
 R6
-R15
+R13
 R8
 vcjb_PM_HMMIOP_v
-R11
+R9
 !i10b 1
-!s100 PZO<>jk0DW7S;QoV:51R03
-IVV6l:0P7T=X7]Rm9hGLU<0
+!s100 RlLlP_gd7@IaUDIdLfCLn2
+IYklIT>ieaT7U@Q`5=WNYd3
 R2
 R0
-w1640304686
+w1649452289
 8D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_PM_HMMIOP_v.v
 FD:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_PM_HMMIOP_v.v
-R12
+R11
 R4
 r1
 !s85 0
 31
-R13
+R10
 !s107 D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_PM_HMMIOP_v.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjb_PM_HMMIOP_v.v|
 !i113 1
 R6
-R14
+R12
 R8
 ncjb_@p@m_@h@m@m@i@o@p_v
 vcjbRISC_HMMIOP_CU_v
@@ -361,7 +361,7 @@ R10
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_CU_v.v|
 !i113 1
 R6
-R14
+R12
 R8
 ncjb@r@i@s@c_@h@m@m@i@o@p_@c@u_v
 vcjbRISC_HMMIOP_DP_v
@@ -374,7 +374,7 @@ R0
 w1636988850
 8D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_DP_v.v
 FD:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_DP_v.v
-R16
+R14
 R4
 r1
 !s85 0
@@ -384,7 +384,7 @@ R10
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_DP_v.v|
 !i113 1
 R6
-R14
+R12
 R8
 ncjb@r@i@s@c_@h@m@m@i@o@p_@d@p_v
 vcjbRISC_HMMIOP_v
@@ -407,7 +407,7 @@ R10
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC|D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_v.v|
 !i113 1
 R6
-R14
+R12
 R8
 ncjb@r@i@s@c_@h@m@m@i@o@p_v
 vcjbRISC_HMMIOP_v_tb
