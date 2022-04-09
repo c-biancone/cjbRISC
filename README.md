@@ -15,6 +15,9 @@
 <!-- DESCRIPTION -->
   <p align="left">
     This is my Verilog implementation of an 8-bit Reduced Instruction Set Computer (RISC), designed to be implemented on an Altera FPGA. It implements basic arithmetic and logic functions and can be easily scaled to include more instructions with added complexity to the CPU, such as a multiplier in the Arithmetic/Logic Unit. Current programs I have written for it compute some random numbers, print out "Hello, World!" in ASCII, and simulate multiplication.
+    <br/>
+    <br/>
+    This project now contains a custom assembler written in Python to take custom Assembly-like .txt files and convert them to .mif machine code files that Quartus can understand and load into the CPU's program memory.
     <br />
     <a href="#usage"><strong>Jump to Usage»</strong></a>
     <br />
@@ -72,6 +75,8 @@ I employed the Algorithmic State Machine method to design the functionality of t
 |:--:|
 </br>
 
+These are passed into the CPU in the form of 8-bit binary instructions, with a 4-bit OpCode, 2-bit source/destination register (R<sub>sd</sub>), and 2-bit second source (R<sub>s</sub>), increment value, or hex offset value. The offset value is used in the Load and Store operations, where data is stored in RAM at the offset value + the value in R<sub>s</sub>. If the offset is large enough, these operations also perform input and output. The JUMP operation, which conditionally moves forward or backward in the program requires a calculation of the offset using the expression: (1024 + targetProgramCount) - currentProgramCount. This value is then converted to binary and only the 8 least significant bits used.
+
 This was used to develop the <a href="https://github.com/c-biancone/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_CU_v.v">Control Unit</a> for the CPU, which generates the necessary signals to correctly control the <a href="https://github.com/c-biancone/cjbRISC/verilog_RISC/cjbRISC_HMMIOP_DP_v.v">Data Path</a> during each Machine Cycle. A block diagram of the Data Path is shown here, detailing the Register File, ALU, Program Memory, Data Memory, and I/O:
 
 | ![Schematic](documents/README/3_bus_Harvard_MM_I_OPs_Schematic.jpg) |
@@ -120,14 +125,17 @@ To implement CPU in hardware:
 
 2. Set ModelSim-Altera as the EDA tool simulation environment and make sure `cjbRISC_HMMIOP_v_tb.v` is set as the testbench to compile.
 
-3. To select the program to run, navigate to the <a href="https://github.com/c-biancone/cjbRISC/tree/main/programs">programs</a> directory and copy the desired program to <a href="https://github.com/c-biancone/cjbRISC/tree/main/cjbRISC_Quartus/simulation/ModelSim">cjbRISC_Quartus/simulation/ModelSim</a>. Change `Line 86` in `cjb_PM_HMMIOP_v` to include the name of the correct program.
+3. To write an Assembly program, see <a href="https://github.com/c-biancone/cjbAssembler">cjbAssembler</a> documentation.
+    * There are <a href="https://github.com/c-biancone/cjbAssembler/tree/main/asm">example programs</a> that detail correct and incorrect code usage and <a href="https://github.com/c-biancone/cjbAssembler/tree/main/good_programs">verified .mif files</a> that run on the CPU as outputs to compare against.
+
+4. To select the program to run, navigate to the <a href="https://github.com/c-biancone/cjbRISC/tree/main/programs">programs</a> directory and copy the desired program to <a href="https://github.com/c-biancone/cjbRISC/tree/main/cjbRISC_Quartus">cjbRISC_Quartus/</a>. Change `Line 86` in `cjb_PM_HMMIOP_v` to include the name of the correct program.
      *  `cjb_PM_HMMIOP_P1` performs some random operations to test the functionality of all instructions.
      *  `cjb_MUL_HMMIOP` simulates multiplication.
      *  `cjb_PM_HMMIOP_P2-Hello_World` computes and prints out "Hello, World!" in ASCII code on the 8 LEDs of the FPGA board.
 
-4. To run only a simulation, set the top-level entity to `cjbRISC_HMMIOP_V.v` and run the Analysis and Synthesis. Once this is done, navigate to Tools > Run Simulation Tool > RTL Simulation.
+5. To run only a simulation, set the top-level entity to `cjbRISC_HMMIOP_V.v` and run the Analysis and Synthesis. Once this is done, navigate to Tools > Run Simulation Tool > RTL Simulation.
 
-5. To compile for hardware implementation, be sure to set the correct pin assignments for your FPGA. Set the top-level entity to `cjbRISC_HMMIOP_v.v` or `cjbRISC_HMMIOP_v_FPGA.v` if clock division is needed. Once this is complete the FPGA can be programmed and the CPU will run.
+6. To compile for hardware implementation, be sure to set the correct pin assignments for your FPGA. Set the top-level entity to `cjbRISC_HMMIOP_v.v` or `cjbRISC_HMMIOP_v_FPGA.v` if clock division is needed. Once this is complete the FPGA can be programmed and the CPU will run.
 
 ##### Note:
 * Lines 253 and 266 of `cjbRISC_HMMIOP_CU.v` determine which addresses of the Memory-Mapped I/O will also output on the store instruction. This needs to be at least the last 4 of the 1024 memory addresses, so change this value in the condition to at most `0x3FC`.
@@ -138,6 +146,8 @@ In its current state, this CPU works properly for all of the instructions it is 
 
 My immediate plans for this project are to write my own assembler to generate the `.mif` files from simple Assembly code targeted toward this architecture. This will make it much easier to write programs compared to manually entering the machine code. I was given a basic C-based assembler to work with this ISA, but it does not work for all instructions and can be improved upon. I plan on writing my own version in C++ to allow for easier lexical analysis and implement correct address offset handling for the Jump, Load, and Store instructions.
 
+## Update 04-2022
+I was given an opportunity through my Principles of Computng course to work on a Python project of my choice, so I instead wrote the assembler for this CPU in Python. It has been tailored to take up ~120 lines of raw code, so it is not the most readable at the moment, but the functionality and readability will be extended in the near future. As it stands, I think it is a very clever solution to the processes of an assembler and works quite well. 
 
 <!-- CONTACT -->
 ## Contact
@@ -150,7 +160,7 @@ Project Link: [https://github.com/c-biancone/cjbRISC](https://github.com/c-bianc
 
 ### Acknowledgements
 
-Special thanks to <a href="https://www.rit.edu/directory/dxpeee-dorin-patru">Dorin Patru</a> as my Digital Systems II professor for instructing me on this lab activity, which I will continue to extend.
+Special thanks to <a href="https://www.rit.edu/directory/dxpeee-dorin-patru">Dr. Dorin Patru</a> as my Digital Systems II professor for instructing me on this lab activity, and <a href="https://www.rit.edu/directory/cxbppr-christopher-bondy">Dr. Chris Bondy</a> for giving me the opportunity to work on the assembler.
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
