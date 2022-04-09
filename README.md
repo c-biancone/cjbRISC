@@ -147,7 +147,7 @@ In its current state, this CPU works properly for all of the instructions it is 
 My immediate plans for this project are to write my own assembler to generate the `.mif` files from simple Assembly code targeted toward this architecture. This will make it much easier to write programs compared to manually entering the machine code. I was given a basic C-based assembler to work with this ISA, but it does not work for all instructions and can be improved upon. I plan on writing my own version in C++ to allow for easier lexical analysis and implement correct address offset handling for the Jump, Load, and Store instructions.
 
 ## Update 04-2022
-I was given an opportunity through my Principles of Computng course to work on a Python project of my choice, so I instead wrote the assembler for this CPU in Python. It has been tailored to take up ~120 lines of raw code, so it is not the most readable at the moment, but the functionality and readability will be extended in the near future. As it stands, I think it is a very clever solution to the processes of an assembler and works quite well. 
+I was given an opportunity through my Principles of Computing course to work on a Python project of my choice, so I instead wrote the assembler for this CPU in Python. It has been tailored to take up ~120 lines of raw code, so it is not the most readable at the moment, but the functionality and readability will be extended in the near future. As it stands, I think it is a very clever solution to the processes of an assembler and works quite well. 
 
 <!-- CONTACT -->
 ## Contact
