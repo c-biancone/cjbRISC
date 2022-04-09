@@ -254,3 +254,25 @@
 # .main_pane.objects.interior.cs.body.tree
 # run -all
 do wave.do
+restart -f
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(19): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage0 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(20): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage1 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'd1'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'd0'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+# ** Warning: (vsim-3015) D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux4to1_v.v(21): [PCDPC] - Port size (8) does not match connection size (4) for port 'f'. The port definition is at: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v(9).
+#    Time: 0 ps  Iteration: 0  Instance: /cjbRISC_HMMIOP_v_tb/muv/DP/ALU/cnvz_mux/stage2 File: D:/Documents/RIT/Semester_4/cjb1402_EEEE-220/cjbRISC/verilog_primitives/cjb_nbit_mux2to1_v.v
+run -all
+# End time: 23:40:18 on Apr 08,2022, Elapsed time: 6:27:48
+# Errors: 0, Warnings: 18
