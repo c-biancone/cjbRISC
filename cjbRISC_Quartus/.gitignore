@@ -22,7 +22,7 @@
 *.pin
 *.pof
 *.ptf.*
-*.qar
+#*.qar
 *.qarlog
 *.qdf
 *.qws
